@@ -1,86 +1,106 @@
-# Seldon Core: Blazing Fast, Industry-Ready ML
-A platform to deploy your machine learning models on Kubernetes at massive scale.
-
-## Seldon Core V2 Now Available
-
-[![scv2_image](https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/_static/scv2_banner.png)](https://docs.seldon.io/projects/seldon-core/en/v2/index.html)
-
-[Seldon Core V2](https://docs.seldon.io/projects/seldon-core/en/v2/index.html) **is now available**. If you're new to Seldon Core we recommend you [start here](https://docs.seldon.io/projects/seldon-core/en/v2/contents/getting-started/index.html). Check out the [docs here](https://docs.seldon.io/projects/seldon-core/en/v2/index.html) and make sure to leave feedback on [our slack community](https://join.slack.com/t/seldondev/shared_invite/zt-vejg6ttd-ksZiQs3O_HOtPQsen_labg) and [submit bugs or feature requests on the repo](https://github.com/SeldonIO/seldon-core/issues/new/choose). The codebase can be found [in this branch](https://github.com/SeldonIO/seldon-core/tree/v2).
-
-Continue reading for info on Seldon Core V1...
-
-[![video_play_icon](https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/images/core-play-logo.png)](https://www.youtube.com/watch?v=5Q-03We8aDE)
-
-## Overview
-
-Seldon core converts your ML models (Tensorflow, Pytorch, H2o, etc.) or language wrappers (Python, Java, etc.) into production REST/GRPC microservices.
-
-Seldon handles scaling to thousands of production machine learning models and provides advanced machine learning capabilities out of the box including Advanced Metrics, Request Logging, Explainers, Outlier Detectors, A/B Tests, Canaries and more.
-
-* Read the [Seldon Core Documentation](https://docs.seldon.io/projects/seldon-core/en/latest/)
-* Join our [community Slack](https://join.slack.com/t/seldondev/shared_invite/zt-vejg6ttd-ksZiQs3O_HOtPQsen_labg) to ask any questions
-* Get started with [Seldon Core Notebook Examples](https://docs.seldon.io/projects/seldon-core/en/latest/examples/notebooks.html)
-* Join our fortnightly [online working group calls](https://docs.seldon.io/projects/seldon-core/en/latest/developer/community.html) : [Google Calendar](https://calendar.google.com/event?action=TEMPLATE&tmeid=MXBtNzI1cjk0dG9kczhsZTRkcWlmcm1kdjVfMjAyMDA3MDlUMTUwMDAwWiBzZWxkb24uaW9fbTRuMnZtcmZubDI3M3FsczVnYjlwNjVpMHNAZw&tmsrc=seldon.io_m4n2vmrfnl273qls5gb9p65i0s%40group.calendar.google.com&scp=ALL)
-* Learn how you can [start contributing](https://docs.seldon.io/projects/seldon-core/en/latest/developer/contributing.html)
-* Check out [Blogs](https://docs.seldon.io/projects/seldon-core/en/latest/tutorials/blogs.html) that dive into Seldon Core components
-* Watch some of the [Videos and Talks](https://docs.seldon.io/projects/seldon-core/en/latest/tutorials/videos.html) using Seldon Core
-
-![](https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/images/seldon-core-high-level.jpg)
-
-### High Level Features
-
-With over 2M installs, Seldon Core is used across organisations to manage large scale deployment of machine learning models, and key benefits include:
-
- * Easy way to containerise ML models using our [pre-packaged inference servers](https://docs.seldon.io/projects/seldon-core/en/latest/servers/overview.html), [custom servers](https://docs.seldon.io/projects/seldon-core/en/latest/servers/custom.html), or [language wrappers](https://docs.seldon.io/projects/seldon-core/en/latest/wrappers/language_wrappers.html).
- * Out of the box endpoints which can be tested through [Swagger UI](https://docs.seldon.io/projects/seldon-core/en/latest/reference/apis/openapi.html?highlight=swagger), [Seldon Python Client or Curl / GRPCurl](https://docs.seldon.io/projects/seldon-core/en/latest/python/python_module.html#seldon-core-python-api-client).
- * Cloud agnostic and tested on [AWS EKS, Azure AKS, Google GKE, Alicloud, Digital Ocean and Openshift](https://docs.seldon.io/projects/seldon-core/en/latest/examples/notebooks.html#cloud-specific-examples).
- * Powerful and rich inference graphs made out of [predictors, transformers, routers, combiners, and more](https://docs.seldon.io/projects/seldon-core/en/latest/examples/graph-metadata.html).
- * Metadata provenance to ensure each model can be traced back to its respective [training system, data and metrics](https://docs.seldon.io/projects/seldon-core/en/latest/reference/apis/metadata.html).
- * Advanced and customisable metrics with integration [to Prometheus and Grafana](https://docs.seldon.io/projects/seldon-core/en/latest/analytics/analytics.html).
- * Full auditability through model input-output request [logging integration with Elasticsearch](https://docs.seldon.io/projects/seldon-core/en/latest/analytics/log_level.html).
- * Microservice distributed tracing through [integration to Jaeger](https://docs.seldon.io/projects/seldon-core/en/latest/graph/distributed-tracing.html) for insights on latency across microservice hops.
- * Secure, reliable and robust system maintained through a consistent [security & updates policy](https://github.com/SeldonIO/seldon-core/blob/master/SECURITY.md).
-
-
-## Getting Started
-
-Deploying your models using Seldon Core is simplified through our pre-packaged inference servers and language wrappers. Below you can see how you can deploy our "hello world Iris" example. You can see more details on these workflows in our [Documentation Quickstart](https://docs.seldon.io/projects/seldon-core/en/latest/workflow/quickstart.html).
-
-### Install Seldon Core
-
-Quick install using Helm 3 (you can also use Kustomize):
-
-```bash
-kubectl create namespace seldon-system
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seldon Core：速度超快、行业级机器学习</font></font></h1><a id="user-content-seldon-core-blazing-fast-industry-ready-ml" class="anchor" aria-label="永久链接：Seldon Core：速度超快、行业级机器学习" href="#seldon-core-blazing-fast-industry-ready-ml"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一个在 Kubernetes 上大规模部署机器学习模型的平台。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seldon Core V2 现已推出</font></font></h2><a id="user-content-seldon-core-v2-now-available" class="anchor" aria-label="永久链接：Seldon Core V2 现已推出" href="#seldon-core-v2-now-available"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a href="https://docs.seldon.io/projects/seldon-core/en/v2/index.html" rel="nofollow"><img src="https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/_static/scv2_banner.png" alt="scv2_图像" style="max-width: 100%;"></a></p>
+<p dir="auto"><a href="https://docs.seldon.io/projects/seldon-core/en/v2/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seldon Core V2</font></font></a> <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现已推出</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。如果您是 Seldon Core 新手，我们建议您</font></font><a href="https://docs.seldon.io/projects/seldon-core/en/v2/contents/getting-started/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从这里开始</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。查看</font></font><a href="https://docs.seldon.io/projects/seldon-core/en/v2/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">此处的文档</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，并确保在</font></font><a href="https://join.slack.com/t/seldondev/shared_invite/zt-vejg6ttd-ksZiQs3O_HOtPQsen_labg" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们的 slack 社区</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">留下反馈，并</font></font><a href="https://github.com/SeldonIO/seldon-core/issues/new/choose"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 repo 上提交错误或功能请求。代码库可</font></font></a><font style="vertical-align: inherit;"></font><a href="https://github.com/SeldonIO/seldon-core/tree/v2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在此分支中</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">找到</font><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">继续阅读有关 Seldon Core V1 的信息...</font></font></p>
+<p dir="auto"><a href="https://www.youtube.com/watch?v=5Q-03We8aDE" rel="nofollow"><img src="https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/images/core-play-logo.png" alt="视频播放图标" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">概述</font></font></h2><a id="user-content-overview" class="anchor" aria-label="固定链接：概述" href="#overview"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seldon 核心将您的 ML 模型（Tensorflow、Pytorch、H2o 等）或语言包装器（Python、Java 等）转换为生产 REST/GRPC 微服务。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seldon 可处理数千种生产机器学习模型的扩展，并提供开箱即用的高级机器学习功能，包括高级指标、请求日志、解释器、异常值检测器、A/B 测试、金丝雀等。</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">阅读</font></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seldon 核心文档</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">加入我们的</font></font><a href="https://join.slack.com/t/seldondev/shared_invite/zt-vejg6ttd-ksZiQs3O_HOtPQsen_labg" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">社区 Slack</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">询问任何问题</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开始使用</font></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/examples/notebooks.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seldon Core Notebook 示例</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">加入我们每两周一次的</font></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/developer/community.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在线工作组电话会议</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font></font><a href="https://calendar.google.com/event?action=TEMPLATE&amp;tmeid=MXBtNzI1cjk0dG9kczhsZTRkcWlmcm1kdjVfMjAyMDA3MDlUMTUwMDAwWiBzZWxkb24uaW9fbTRuMnZtcmZubDI3M3FsczVnYjlwNjVpMHNAZw&amp;tmsrc=seldon.io_m4n2vmrfnl273qls5gb9p65i0s%40group.calendar.google.com&amp;scp=ALL" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Google 日历</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">了解如何</font></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/developer/contributing.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开始做出贡献</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">查看</font><font style="vertical-align: inherit;">深入探讨 Seldon 核心组件的</font></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/tutorials/blogs.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">博客</font></font></a><font style="vertical-align: inherit;"></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用 Seldon Core</font><font style="vertical-align: inherit;">观看一些</font></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/tutorials/videos.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">视频和演讲</font></font></a><font style="vertical-align: inherit;"></font></li>
+</ul>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/images/seldon-core-high-level.jpg"><img src="https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/images/seldon-core-high-level.jpg" alt="" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">高级功能</font></font></h3><a id="user-content-high-level-features" class="anchor" aria-label="固定链接：高级功能" href="#high-level-features"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seldon Core 的安装量超过 200 万，被各大组织用于管理机器学习模型的大规模部署，其主要优势包括：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/servers/overview.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用我们预先打包的推理服务器</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/servers/custom.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">自定义服务器</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/wrappers/language_wrappers.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语言包装器</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">轻松容器化 ML 模型</font><font style="vertical-align: inherit;">。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开箱即用的端点，可以通过</font></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/reference/apis/openapi.html?highlight=swagger" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Swagger UI</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/python/python_module.html#seldon-core-python-api-client" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seldon Python Client 或 Curl/GRPCurl</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">进行测试。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">与云无关，并在</font></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/examples/notebooks.html#cloud-specific-examples" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">AWS EKS、Azure AKS、Google GKE、Alicloud、Digital Ocean 和 Openshift</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上进行测试。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">由</font></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/examples/graph-metadata.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">预测器、变换器、路由器、组合器等</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">构成的强大而丰富的推理图。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元数据来源确保每个模型都可以追溯到其各自的</font></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/reference/apis/metadata.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">训练系统、数据和指标</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><font style="vertical-align: inherit;"></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/analytics/analytics.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">与Prometheus 和 Grafana</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">集成的高级和可定制指标</font><font style="vertical-align: inherit;">。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过模型输入输出请求</font></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/analytics/log_level.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">日志与 Elasticsearch 集成，</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实现完全的可审计性。</font></font></li>
+<li><font style="vertical-align: inherit;"></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/graph/distributed-tracing.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过与 Jaeger 集成进行</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">微服务分布式跟踪</font><font style="vertical-align: inherit;">，以了解跨微服务跳跃的延迟。</font></font></li>
+<li><font style="vertical-align: inherit;"></font><a href="https://github.com/SeldonIO/seldon-core/blob/master/SECURITY.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过一致的安全和更新策略</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">维护安全、可靠且强大的系统</font><font style="vertical-align: inherit;">。</font></font></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">入门</font></font></h2><a id="user-content-getting-started" class="anchor" aria-label="永久链接：入门" href="#getting-started"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过我们预先打包的推理服务器和语言包装器，使用 Seldon Core 部署模型变得非常简单。下面您可以看到如何部署我们的“hello world Iris”示例。您可以在我们的</font></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/workflow/quickstart.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档快速入门</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中查看有关这些工作流程的更多详细信息。</font></font></p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装 Seldon Core</font></font></h3><a id="user-content-install-seldon-core" class="anchor" aria-label="永久链接：安装 Seldon Core" href="#install-seldon-core"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用 Helm 3 快速安装（您也可以使用 Kustomize）：</font></font></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>kubectl create namespace seldon-system
 
 helm install seldon-core seldon-core-operator \
     --repo https://storage.googleapis.com/seldon-charts \
     --set usageMetrics.enabled=true \
     --namespace seldon-system \
     --set istio.enabled=true
-    # You can set ambassador instead with --set ambassador.enabled=true
-```
+    <span class="pl-c"><span class="pl-c">#</span> You can set ambassador instead with --set ambassador.enabled=true</span></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="kubectl create namespace seldon-system
 
-### Deploy your model using pre-packaged model servers
-
-We provide optimized model servers for some of the most popular Deep Learning and Machine Learning frameworks that allow you to deploy your trained model binaries/weights without having to containerize or modify them.
-
-You only have to upload your model binaries into your preferred object store, in this case we have a trained scikit-learn iris model in a Google bucket:
-
-```console
-gs://seldon-models/v1.19.0-dev/sklearn/iris/model.joblib
-```
-
-Create a namespace to run your model in:
-
-```bash
-kubectl create namespace seldon
-```
-
-We then can deploy this model with Seldon Core to our Kubernetes cluster using the pre-packaged model server for scikit-learn (SKLEARN_SERVER) by running the `kubectl apply` command below:
-
-```yaml
-$ kubectl apply -f - << END
+helm install seldon-core seldon-core-operator \
+    --repo https://storage.googleapis.com/seldon-charts \
+    --set usageMetrics.enabled=true \
+    --namespace seldon-system \
+    --set istio.enabled=true
+    # You can set ambassador instead with --set ambassador.enabled=true" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用预先打包的模型服务器部署您的模型</font></font></h3><a id="user-content-deploy-your-model-using-pre-packaged-model-servers" class="anchor" aria-label="永久链接：使用预打包的模型服务器部署你的模型" href="#deploy-your-model-using-pre-packaged-model-servers"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们为一些最流行的深度学习和机器学习框架提供优化的模型服务器，使您无需容器化或修改它们即可部署经过训练的模型二进制文件/权重。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您只需将模型二进制文件上传到您喜欢的对象存储中，在本例中，我们在 Google 存储桶中有一个经过训练的 scikit-learn 虹膜模型：</font></font></p>
+<div class="highlight highlight-text-shell-session notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-c1">gs://seldon-models/v1.19.0-dev/sklearn/iris/model.joblib</span></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="gs://seldon-models/v1.19.0-dev/sklearn/iris/model.joblib" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">创建一个命名空间来运行你的模型：</font></font></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>kubectl create namespace seldon</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="kubectl create namespace seldon" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"></font><code>kubectl apply</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">然后，我们可以通过运行以下命令，</font><font style="vertical-align: inherit;">使用预先打包的 scikit-learn 模型服务器 (SKLEARN_SERVER) 将该模型与 Seldon Core 部署到我们的 Kubernetes 集群：</font></font></p>
+<div class="highlight highlight-source-yaml notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-s">$ kubectl apply -f - &lt;&lt; END</span>
+<span class="pl-ent">apiVersion</span>: <span class="pl-s">machinelearning.seldon.io/v1</span>
+<span class="pl-ent">kind</span>: <span class="pl-s">SeldonDeployment</span>
+<span class="pl-ent">metadata</span>:
+  <span class="pl-ent">name</span>: <span class="pl-s">iris-model</span>
+  <span class="pl-ent">namespace</span>: <span class="pl-s">seldon</span>
+<span class="pl-ent">spec</span>:
+  <span class="pl-ent">name</span>: <span class="pl-s">iris</span>
+  <span class="pl-ent">predictors</span>:
+  - <span class="pl-ent">graph</span>:
+      <span class="pl-ent">implementation</span>: <span class="pl-s">SKLEARN_SERVER</span>
+      <span class="pl-ent">modelUri</span>: <span class="pl-s">gs://seldon-models/v1.19.0-dev/sklearn/iris</span>
+      <span class="pl-ent">name</span>: <span class="pl-s">classifier</span>
+    <span class="pl-ent">name</span>: <span class="pl-s">default</span>
+    <span class="pl-ent">replicas</span>: <span class="pl-c1">1</span>
+<span class="pl-s">END</span></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="$ kubectl apply -f - << END
 apiVersion: machinelearning.seldon.io/v1
 kind: SeldonDeployment
 metadata:
@@ -95,33 +115,54 @@ spec:
       name: classifier
     name: default
     replicas: 1
-END
-```
+END" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<div class="markdown-heading" dir="auto"><h4 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">向您部署的模型发送 API 请求</font></font></h4><a id="user-content-send-api-requests-to-your-deployed-model" class="anchor" aria-label="永久链接：向您部署的模型发送 API 请求" href="#send-api-requests-to-your-deployed-model"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">每个部署的模型都公开一个标准化的用户界面，以使用我们的 OpenAPI 模式发送请求。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您可以通过端点访问它</font></font><code>http://&lt;ingress_url&gt;/seldon/&lt;namespace&gt;/&lt;model-name&gt;/api/v1.0/doc/</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，并允许您直接通过浏览器发送请求。</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/images/rest-openapi.jpg"><img src="https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/images/rest-openapi.jpg" alt="" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或者，您可以使用我们的</font></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/python/seldon_client.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seldon Python 客户端</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或其他 Linux CLI 以编程方式发送请求：</font></font></p>
+<div class="highlight highlight-text-shell-session notranslate position-relative overflow-auto" dir="auto"><pre>$ <span class="pl-s1">curl -X POST http://<span class="pl-k">&lt;</span>ingress<span class="pl-k">&gt;</span>/seldon/seldon/iris-model/api/v1.0/predictions \</span>
+<span class="pl-c1">    -H 'Content-Type: application/json' \</span>
+<span class="pl-c1">    -d '{ "data": { "ndarray": [[1,2,3,4]] } }'</span>
 
-#### Send API requests to your deployed model
-
-Every model deployed exposes a standardised User Interface to send requests using our OpenAPI schema.
-
-This can be accessed through the endpoint `http://<ingress_url>/seldon/<namespace>/<model-name>/api/v1.0/doc/` which will allow you to send requests directly through your browser.
-
-![](https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/images/rest-openapi.jpg)
-
-Or alternatively you can send requests programmatically using our [Seldon Python Client](https://docs.seldon.io/projects/seldon-core/en/latest/python/seldon_client.html) or another Linux CLI:
-
-```console
-$ curl -X POST http://<ingress>/seldon/seldon/iris-model/api/v1.0/predictions \
+<span class="pl-c1">{</span>
+<span class="pl-c1">   "meta" : {},</span>
+<span class="pl-c1">   "data" : {</span>
+<span class="pl-c1">      "names" : [</span>
+<span class="pl-c1">         "t:0",</span>
+<span class="pl-c1">         "t:1",</span>
+<span class="pl-c1">         "t:2"</span>
+<span class="pl-c1">      ],</span>
+<span class="pl-c1">      "ndarray" : [</span>
+<span class="pl-c1">         [</span>
+<span class="pl-c1">            0.000698519453116284,</span>
+<span class="pl-c1">            0.00366803903943576,</span>
+<span class="pl-c1">            0.995633441507448</span>
+<span class="pl-c1">         ]</span>
+<span class="pl-c1">      ]</span>
+<span class="pl-c1">   }</span>
+<span class="pl-c1">}</span></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="$ curl -X POST http://<ingress>/seldon/seldon/iris-model/api/v1.0/predictions \
     -H 'Content-Type: application/json' \
-    -d '{ "data": { "ndarray": [[1,2,3,4]] } }'
+    -d '{ &quot;data&quot;: { &quot;ndarray&quot;: [[1,2,3,4]] } }'
 
 {
-   "meta" : {},
-   "data" : {
-      "names" : [
-         "t:0",
-         "t:1",
-         "t:2"
+   &quot;meta&quot; : {},
+   &quot;data&quot; : {
+      &quot;names&quot; : [
+         &quot;t:0&quot;,
+         &quot;t:1&quot;,
+         &quot;t:2&quot;
       ],
-      "ndarray" : [
+      &quot;ndarray&quot; : [
          [
             0.000698519453116284,
             0.00366803903943576,
@@ -129,36 +170,74 @@ $ curl -X POST http://<ingress>/seldon/seldon/iris-model/api/v1.0/predictions \
          ]
       ]
    }
-}
-```
+}" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用语言包装器部署自定义模型</font></font></h3><a id="user-content-deploy-your-custom-model-using-language-wrappers" class="anchor" aria-label="永久链接：使用语言包装器部署您的自定义模型" href="#deploy-your-custom-model-using-language-wrappers"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对于具有自定义依赖项（例如第三方库、操作系统二进制文件甚至外部系统）的更多自定义深度学习和机器学习用例，我们可以使用任何 Seldon Core 语言包装器。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您只需编写一个公开模型逻辑的类包装器；例如在 Python 中我们可以创建一个文件</font></font><code>Model.py</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font></font></p>
+<div class="highlight highlight-source-python notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-k">import</span> <span class="pl-s1">pickle</span>
+<span class="pl-k">class</span> <span class="pl-v">Model</span>:
+    <span class="pl-k">def</span> <span class="pl-en">__init__</span>(<span class="pl-s1">self</span>):
+        <span class="pl-s1">self</span>.<span class="pl-s1">_model</span> <span class="pl-c1">=</span> <span class="pl-s1">pickle</span>.<span class="pl-en">loads</span>( <span class="pl-en">open</span>(<span class="pl-s">"model.pickle"</span>, <span class="pl-s">"rb"</span>) )
 
-### Deploy your custom model using language wrappers
-
-For more custom deep learning and machine learning use-cases which have custom dependencies (such as 3rd party libraries, operating system binaries or even external systems), we can use any of the Seldon Core language wrappers.
-
-You only have to write a class wrapper that exposes the logic of your model; for example in Python we can create a file `Model.py`:
-
-```python
-import pickle
+    <span class="pl-k">def</span> <span class="pl-en">predict</span>(<span class="pl-s1">self</span>, <span class="pl-v">X</span>):
+        <span class="pl-s1">output</span> <span class="pl-c1">=</span> <span class="pl-s1">self</span>.<span class="pl-en">_model</span>(<span class="pl-v">X</span>)
+        <span class="pl-k">return</span> <span class="pl-s1">output</span></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="import pickle
 class Model:
     def __init__(self):
-        self._model = pickle.loads( open("model.pickle", "rb") )
+        self._model = pickle.loads( open(&quot;model.pickle&quot;, &quot;rb&quot;) )
 
     def predict(self, X):
         output = self._model(X)
-        return output
-```
-
-We can now containerize our class file using the [Seldon Core s2i utils](https://docs.seldon.io/projects/seldon-core/en/latest/wrappers/s2i.html) to produce the `sklearn_iris` image:
-
-```console
-s2i build . seldonio/seldon-core-s2i-python3:0.18 sklearn_iris:0.1
-```
-
-And we now deploy it to our Seldon Core Kubernetes Cluster:
-
-```yaml
-$ kubectl apply -f - << END
+        return output" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们现在可以使用</font></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/wrappers/s2i.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seldon Core s2i 实用</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">程序容器化我们的类文件来生成</font></font><code>sklearn_iris</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">图像：</font></font></p>
+<div class="highlight highlight-text-shell-session notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-c1">s2i build . seldonio/seldon-core-s2i-python3:0.18 sklearn_iris:0.1</span></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="s2i build . seldonio/seldon-core-s2i-python3:0.18 sklearn_iris:0.1" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现在我们将其部署到我们的 Seldon Core Kubernetes 集群：</font></font></p>
+<div class="highlight highlight-source-yaml notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-s">$ kubectl apply -f - &lt;&lt; END</span>
+<span class="pl-ent">apiVersion</span>: <span class="pl-s">machinelearning.seldon.io/v1</span>
+<span class="pl-ent">kind</span>: <span class="pl-s">SeldonDeployment</span>
+<span class="pl-ent">metadata</span>:
+  <span class="pl-ent">name</span>: <span class="pl-s">iris-model</span>
+  <span class="pl-ent">namespace</span>: <span class="pl-s">model-namespace</span>
+<span class="pl-ent">spec</span>:
+  <span class="pl-ent">name</span>: <span class="pl-s">iris</span>
+  <span class="pl-ent">predictors</span>:
+  - <span class="pl-ent">componentSpecs</span>:
+    - <span class="pl-ent">spec</span>:
+        <span class="pl-ent">containers</span>:
+        - <span class="pl-ent">name</span>: <span class="pl-s">classifier</span>
+          <span class="pl-ent">image</span>: <span class="pl-s">sklearn_iris:0.1</span>
+    <span class="pl-ent">graph</span>:
+      <span class="pl-ent">name</span>: <span class="pl-s">classifier</span>
+    <span class="pl-ent">name</span>: <span class="pl-s">default</span>
+    <span class="pl-ent">replicas</span>: <span class="pl-c1">1</span>
+<span class="pl-s">END</span></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="$ kubectl apply -f - << END
 apiVersion: machinelearning.seldon.io/v1
 kind: SeldonDeployment
 metadata:
@@ -176,33 +255,54 @@ spec:
       name: classifier
     name: default
     replicas: 1
-END
-```
+END" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<div class="markdown-heading" dir="auto"><h4 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">向您部署的模型发送 API 请求</font></font></h4><a id="user-content-send-api-requests-to-your-deployed-model-1" class="anchor" aria-label="永久链接：向您部署的模型发送 API 请求" href="#send-api-requests-to-your-deployed-model-1"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">每个部署的模型都公开一个标准化的用户界面，以使用我们的 OpenAPI 模式发送请求。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您可以通过端点访问它</font></font><code>http://&lt;ingress_url&gt;/seldon/&lt;namespace&gt;/&lt;model-name&gt;/api/v1.0/doc/</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，并允许您直接通过浏览器发送请求。</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/images/rest-openapi.jpg"><img src="https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/images/rest-openapi.jpg" alt="" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或者，您可以使用我们的</font></font><a href="https://docs.seldon.io/projects/seldon-core/en/latest/python/seldon_client.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seldon Python 客户端</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或其他 Linux CLI 以编程方式发送请求：</font></font></p>
+<div class="highlight highlight-text-shell-session notranslate position-relative overflow-auto" dir="auto"><pre>$ <span class="pl-s1">curl -X POST http://<span class="pl-k">&lt;</span>ingress<span class="pl-k">&gt;</span>/seldon/model-namespace/iris-model/api/v1.0/predictions \</span>
+<span class="pl-c1">    -H 'Content-Type: application/json' \</span>
+<span class="pl-c1">    -d '{ "data": { "ndarray": [1,2,3,4] } }' | json_pp</span>
 
-#### Send API requests to your deployed model
-
-Every model deployed exposes a standardised User Interface to send requests using our OpenAPI schema.
-
-This can be accessed through the endpoint `http://<ingress_url>/seldon/<namespace>/<model-name>/api/v1.0/doc/` which will allow you to send requests directly through your browser.
-
-![](https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/images/rest-openapi.jpg)
-
-Or alternatively you can send requests programmatically using our [Seldon Python Client](https://docs.seldon.io/projects/seldon-core/en/latest/python/seldon_client.html) or another Linux CLI:
-
-```console
-$ curl -X POST http://<ingress>/seldon/model-namespace/iris-model/api/v1.0/predictions \
+<span class="pl-c1">{</span>
+<span class="pl-c1">   "meta" : {},</span>
+<span class="pl-c1">   "data" : {</span>
+<span class="pl-c1">      "names" : [</span>
+<span class="pl-c1">         "t:0",</span>
+<span class="pl-c1">         "t:1",</span>
+<span class="pl-c1">         "t:2"</span>
+<span class="pl-c1">      ],</span>
+<span class="pl-c1">      "ndarray" : [</span>
+<span class="pl-c1">         [</span>
+<span class="pl-c1">            0.000698519453116284,</span>
+<span class="pl-c1">            0.00366803903943576,</span>
+<span class="pl-c1">            0.995633441507448</span>
+<span class="pl-c1">         ]</span>
+<span class="pl-c1">      ]</span>
+<span class="pl-c1">   }</span>
+<span class="pl-c1">}</span></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="$ curl -X POST http://<ingress>/seldon/model-namespace/iris-model/api/v1.0/predictions \
     -H 'Content-Type: application/json' \
-    -d '{ "data": { "ndarray": [1,2,3,4] } }' | json_pp
+    -d '{ &quot;data&quot;: { &quot;ndarray&quot;: [1,2,3,4] } }' | json_pp
 
 {
-   "meta" : {},
-   "data" : {
-      "names" : [
-         "t:0",
-         "t:1",
-         "t:2"
+   &quot;meta&quot; : {},
+   &quot;data&quot; : {
+      &quot;names&quot; : [
+         &quot;t:0&quot;,
+         &quot;t:1&quot;,
+         &quot;t:2&quot;
       ],
-      "ndarray" : [
+      &quot;ndarray&quot; : [
          [
             0.000698519453116284,
             0.00366803903943576,
@@ -210,178 +310,175 @@ $ curl -X POST http://<ingress>/seldon/model-namespace/iris-model/api/v1.0/predi
          ]
       ]
    }
-}
-```
-
-### Dive into the Advanced Production ML Integrations
-
-Any model that is deployed and orchestrated with Seldon Core provides out of the box machine learning insights for monitoring, managing, scaling and debugging.
-
-Below are some of the core components together with link to the logs that provide further insights on how to set them up.
-
-<table>
-  <tr valign="top">
-    <td width="50%" >
-        <a href="https://docs.seldon.io/projects/seldon-core/en/latest/analytics/analytics.html">
+}" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">深入了解高级生产 ML 集成</font></font></h3><a id="user-content-dive-into-the-advanced-production-ml-integrations" class="anchor" aria-label="永久链接：深入了解高级生产 ML 集成" href="#dive-into-the-advanced-production-ml-integrations"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">任何使用 Seldon Core 部署和编排的模型都可以提供开箱即用的机器学习见解，以供监控、管理、扩展和调试。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以下是一些核心组件以及日志链接，提供有关如何设置它们的进一步见解。</font></font></p>
+<markdown-accessiblity-table data-catalyst=""><table>
+  <tbody><tr valign="top">
+    <td width="50%">
+        <a href="https://docs.seldon.io/projects/seldon-core/en/latest/analytics/analytics.html" rel="nofollow">
             <br>
-            <b>Standard and custom metrics with prometheus</b>
+            <b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用 Prometheus 的标准和自定义指标</font></font></b>
             <br>
             <br>
-            <img src="https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/analytics/dashboard.png">
+            <img src="https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/analytics/dashboard.png" style="max-width: 100%;">
         </a>
     </td>
     <td width="50%">
-        <a href="https://docs.seldon.io/projects/seldon-core/en/latest/analytics/logging.html">
+        <a href="https://docs.seldon.io/projects/seldon-core/en/latest/analytics/logging.html" rel="nofollow">
             <br>
-            <b>Full audit trails with ELK request logging</b>
+            <b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用 ELK 请求日志进行完整的审计跟踪</font></font></b>
             <br>
             <br>
-            <img src="https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/images/kibana-custom-search.png">
+            <img src="https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/images/kibana-custom-search.png" style="max-width: 100%;">
         </a>
     </td>
   </tr>
   <tr valign="top">
     <td width="50%">
-        <a href="https://docs.seldon.io/projects/seldon-core/en/latest/analytics/explainers.html">
+        <a href="https://docs.seldon.io/projects/seldon-core/en/latest/analytics/explainers.html" rel="nofollow">
             <br>
-            <b>Explainers for Machine Learning Interpretability</b>
+            <b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">机器学习可解释性的解释器</font></font></b>
             <br>
             <br>
-            <img src="https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/images/anchors.jpg">
+            <img src="https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/images/anchors.jpg" style="max-width: 100%;">
         </a>
     </td>
     <td width="50%">
-        <a href="https://docs.seldon.io/projects/seldon-core/en/latest/analytics/outlier_detection.html">
+        <a href="https://docs.seldon.io/projects/seldon-core/en/latest/analytics/outlier_detection.html" rel="nofollow">
             <br>
-            <b>Outlier and Adversarial Detectors for Monitoring</b>
+            <b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于监控的异常值和对抗检测器</font></font></b>
             <br>
             <br>
-            <img src="https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/images/adversarial-attack.png">
+            <img src="https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/images/adversarial-attack.png" style="max-width: 100%;">
         </a>
     </td>
   </tr>
   <tr valign="top">
     <td width="50%">
-        <a href="https://docs.seldon.io/projects/seldon-core/en/latest/analytics/cicd-mlops.html">
+        <a href="https://docs.seldon.io/projects/seldon-core/en/latest/analytics/cicd-mlops.html" rel="nofollow">
             <br>
-            <b>CI/CD for MLOps at Massive Scale</b>
+            <b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">大规模 MLOps 的 CI/CD</font></font></b>
             <br>
             <br>
-            <img src="https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/images/cicd-seldon.jpg">
+            <img src="https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/images/cicd-seldon.jpg" style="max-width: 100%;">
         </a>
     </td>
     <td width="50%">
-        <a href="https://docs.seldon.io/projects/seldon-core/en/latest/graph/distributed-tracing.html">
+        <a href="https://docs.seldon.io/projects/seldon-core/en/latest/graph/distributed-tracing.html" rel="nofollow">
             <br>
-            <b>Distributed tracing for performance monitoring</b>
+            <b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于性能监控的分布式跟踪</font></font></b>
             <br>
             <br>
-            <img src="https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/graph/jaeger-ui-rest-example.png">
+            <img src="https://raw.githubusercontent.com/SeldonIO/seldon-core/master/doc/source/graph/jaeger-ui-rest-example.png" style="max-width: 100%;">
         </a>
     </td>
   </tr>
-</table>
-
-## Where to go from here
-
-### Getting Started
-
-* [Quickstart Guide ](https://docs.seldon.io/projects/seldon-core/en/latest/workflow/github-readme.html)
-* [Overview of Components ](https://docs.seldon.io/projects/seldon-core/en/latest/workflow/overview.html)
-* [Install Seldon Core on Kubernetes ](https://docs.seldon.io/projects/seldon-core/en/latest/workflow/install.html)
-* [Join the Community ](https://docs.seldon.io/projects/seldon-core/en/latest/developer/community.html)
-
-### Seldon Core Deep Dive
-
-* [Detailed Installation Parameters ](https://docs.seldon.io/projects/seldon-core/en/latest/reference/helm.html)
-* [Pre-packaged Inference Servers ](https://docs.seldon.io/projects/seldon-core/en/latest/servers/overview.html)
-* [Language Wrappers for Custom Models ](https://docs.seldon.io/projects/seldon-core/en/latest/wrappers/language_wrappers.html)
-* [Create your Inference Graph ](https://docs.seldon.io/projects/seldon-core/en/latest/graph/inference-graph.html)
-* [Deploy your Model  ](https://docs.seldon.io/projects/seldon-core/en/latest/workflow/deploying.html)
-* [Testing your Model Endpoints  ](https://docs.seldon.io/projects/seldon-core/en/latest/workflow/serving.html)
-* [Troubleshooting guide ](https://docs.seldon.io/projects/seldon-core/en/latest/workflow/troubleshooting.html)
-* [Usage reporting ](https://docs.seldon.io/projects/seldon-core/en/latest/workflow/usage-reporting.html)
-* [Upgrading ](https://docs.seldon.io/projects/seldon-core/en/latest/reference/upgrading.html)
-* [Changelog ](https://docs.seldon.io/projects/seldon-core/en/latest/reference/changelog.html)
-
-### Pre-Packaged Inference Servers
-
-* [MLflow Server ](https://docs.seldon.io/projects/seldon-core/en/latest/servers/mlflow.html)
-* [SKLearn server ](https://docs.seldon.io/projects/seldon-core/en/latest/servers/sklearn.html)
-* [Tensorflow Serving ](https://docs.seldon.io/projects/seldon-core/en/latest/servers/tensorflow.html)
-* [XGBoost server ](https://docs.seldon.io/projects/seldon-core/en/latest/servers/xgboost.html)
-
-### Language Wrappers (Production)
-
-* [Python Language Wrapper [Production] ](https://docs.seldon.io/projects/seldon-core/en/latest/python/index.html)
-
-### Language Wrappers (Incubating)
-
-* [Java Language Wrapper [Incubating] ](https://docs.seldon.io/projects/seldon-core/en/latest/java/README.html)
-* [R Language Wrapper [ALPHA] ](https://docs.seldon.io/projects/seldon-core/en/latest/R/README.html)
-* [NodeJS Language Wrapper [ALPHA] ](https://docs.seldon.io/projects/seldon-core/en/latest/nodejs/README.html)
-* [Go Language Wrapper [ALPHA] ](https://docs.seldon.io/projects/seldon-core/en/latest/go/go_wrapper_link.html)
-
-### Ingress
-
-* [Ambassador Ingress ](https://docs.seldon.io/projects/seldon-core/en/latest/ingress/ambassador.html)
-* [Istio Ingress ](https://docs.seldon.io/projects/seldon-core/en/latest/ingress/istio.html)
-
-### Production
-
-* [Supported API Protocols ](https://docs.seldon.io/projects/seldon-core/en/latest/graph/protocols.html)
-* [CI/CD MLOps at Scale ](https://docs.seldon.io/projects/seldon-core/en/latest/analytics/cicd-mlops.html)
-* [Metrics with Prometheus ](https://docs.seldon.io/projects/seldon-core/en/latest/analytics/analytics.html)
-* [Payload Logging with ELK ](https://docs.seldon.io/projects/seldon-core/en/latest/analytics/logging.html)
-* [Distributed Tracing with Jaeger ](https://docs.seldon.io/projects/seldon-core/en/latest/graph/distributed-tracing.html)
-* [Replica Scaling ](https://docs.seldon.io/projects/seldon-core/en/latest/graph/scaling.html)
-* [Budgeting Disruptions](https://docs.seldon.io/projects/seldon-core/en/latest/graph/disruption-budgets.html)
-* [Custom Inference Servers](https://docs.seldon.io/projects/seldon-core/en/latest/servers/custom.html)
-
-### Advanced Inference
-
-* [Model Explanations ](https://docs.seldon.io/projects/seldon-core/en/latest/analytics/explainers.html)
-* [Outlier Detection ](https://docs.seldon.io/projects/seldon-core/en/latest/analytics/outlier_detection.html)
-* [Routers (incl. Multi Armed Bandits)  ](https://docs.seldon.io/projects/seldon-core/en/latest/analytics/routers.html)
-
-### Examples
-
-* [Notebooks ](https://docs.seldon.io/projects/seldon-core/en/latest/examples/notebooks.html)
-* [Articles/Blogs ](https://docs.seldon.io/projects/seldon-core/en/latest/tutorials/blogs.html)
-* [Videos ](https://docs.seldon.io/projects/seldon-core/en/latest/tutorials/videos.html)
-
-### Reference
-
-* [Annotation-based Configuration ](https://docs.seldon.io/projects/seldon-core/en/latest/graph/annotations.html)
-* [Benchmarking ](https://docs.seldon.io/projects/seldon-core/en/latest/reference/benchmarking.html)
-* [General Availability ](https://docs.seldon.io/projects/seldon-core/en/latest/reference/ga.html)
-* [Helm Charts ](https://docs.seldon.io/projects/seldon-core/en/latest/graph/helm_charts.html)
-* [Images ](https://docs.seldon.io/projects/seldon-core/en/latest/reference/images.html)
-* [Logging & Log Level ](https://docs.seldon.io/projects/seldon-core/en/latest/analytics/log_level.html)
-* [Private Docker Registry ](https://docs.seldon.io/projects/seldon-core/en/latest/graph/private_registries.html)
-* [Prediction APIs ](https://docs.seldon.io/projects/seldon-core/en/latest/reference/apis/index.html)
-* [Python API reference ](https://docs.seldon.io/projects/seldon-core/en/latest/python/api/modules.html)
-* [Release Highlights ](https://docs.seldon.io/projects/seldon-core/en/latest/reference/release-highlights.html)
-* [Seldon Deployment CRD ](https://docs.seldon.io/projects/seldon-core/en/latest/reference/seldon-deployment.html)
-* [Service Orchestrator ](https://docs.seldon.io/projects/seldon-core/en/latest/graph/svcorch.html)
-* [Kubeflow ](https://docs.seldon.io/projects/seldon-core/en/latest/analytics/kubeflow.html)
-
-### Developer
-
-* [Overview ](https://docs.seldon.io/projects/seldon-core/en/latest/developer/readme.html)
-* [Contributing to Seldon Core ](https://docs.seldon.io/projects/seldon-core/en/latest/developer/contributing.html)
-* [End to End Tests ](https://docs.seldon.io/projects/seldon-core/en/latest/developer/e2e.html)
-* [Roadmap ](https://docs.seldon.io/projects/seldon-core/en/latest/developer/roadmap.html)
-* [Build using private repo ](https://docs.seldon.io/projects/seldon-core/en/latest/developer/build-using-private-repo.html)
-
-## About the name "Seldon Core"
-
-The name Seldon (ˈSɛldən) Core was inspired from [the Foundation Series (Sci-fi novels)](https://en.wikipedia.org/wiki/Foundation_series) where its premise consists of a mathematician called "Hari Seldon" who spends his life developing a theory of Psychohistory, a new and effective mathematical sociology which allows for the future to be predicted extremely accurate through long periods of time (across hundreds of thousands of years).
-
-## Commercial Offerings
-
-To learn more about our commercial offerings visit [https://www.seldon.io/](https://www.seldon.io/).
-
-## License
-
-[License](LICENSE)
+</tbody></table></markdown-accessiblity-table>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从这往哪儿走</font></font></h2><a id="user-content-where-to-go-from-here" class="anchor" aria-label="永久链接：接下来该去哪里" href="#where-to-go-from-here"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">入门</font></font></h3><a id="user-content-getting-started-1" class="anchor" aria-label="永久链接：入门" href="#getting-started-1"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/workflow/github-readme.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">快速入门指南</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/workflow/overview.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">组件概述</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/workflow/install.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 Kubernetes 上安装 Seldon Core</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/developer/community.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">加入社区</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">深入探究 Seldon 核心</font></font></h3><a id="user-content-seldon-core-deep-dive" class="anchor" aria-label="永久链接：Seldon 核心深度探究" href="#seldon-core-deep-dive"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/reference/helm.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">详细安装参数</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/servers/overview.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">预封装的推理服务器</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/wrappers/language_wrappers.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">自定义模型的语言包装器</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/graph/inference-graph.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">创建推理图</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/workflow/deploying.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">部署你的模型  </font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/workflow/serving.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">测试模型端点  </font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/workflow/troubleshooting.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">故障排除指南</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/workflow/usage-reporting.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用情况报告</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/reference/upgrading.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">升级</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/reference/changelog.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">更新日志</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">预打包的推理服务器</font></font></h3><a id="user-content-pre-packaged-inference-servers" class="anchor" aria-label="永久链接：预打包的推理服务器" href="#pre-packaged-inference-servers"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/servers/mlflow.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MLflow 服务器</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/servers/sklearn.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SKLearn 服务器</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/servers/tensorflow.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TensorFlow 服务</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/servers/xgboost.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">XGBoost 服务器</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语言包装器（生产）</font></font></h3><a id="user-content-language-wrappers-production" class="anchor" aria-label="永久链接：语言包装器（生产）" href="#language-wrappers-production"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/python/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Python 语言包装器 [生产]</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语言包装器（孵化中）</font></font></h3><a id="user-content-language-wrappers-incubating" class="anchor" aria-label="永久链接：语言包装器（孵化中）" href="#language-wrappers-incubating"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/java/README.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Java 语言包装器 [孵化]</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/R/README.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">R 语言包装器 [ALPHA]</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/nodejs/README.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">NodeJS 语言包装器 [ALPHA]</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/go/go_wrapper_link.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Go 语言包装器 [ALPHA]</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">入口</font></font></h3><a id="user-content-ingress" class="anchor" aria-label="永久链接：Ingress" href="#ingress"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/ingress/ambassador.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">大使入口</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/ingress/istio.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Istio Ingress</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">生产</font></font></h3><a id="user-content-production" class="anchor" aria-label="固定链接：生产" href="#production"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/graph/protocols.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持的 API 协议</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/analytics/cicd-mlops.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">大规模 CI/CD MLOps</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/analytics/analytics.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用 Prometheus 进行指标</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/analytics/logging.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用 ELK 进行有效负载记录</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/graph/distributed-tracing.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用 Jaeger 进行分布式跟踪</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/graph/scaling.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">副本扩展</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/graph/disruption-budgets.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">预算中断</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/servers/custom.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">自定义推理服务器</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">高级推理</font></font></h3><a id="user-content-advanced-inference" class="anchor" aria-label="永久链接：高级推理" href="#advanced-inference"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/analytics/explainers.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">模型说明</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/analytics/outlier_detection.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">异常值检测</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/analytics/routers.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">路由器（包括多臂老虎机）  </font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">例子</font></font></h3><a id="user-content-examples" class="anchor" aria-label="永久链接：示例" href="#examples"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/examples/notebooks.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">笔记本</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/tutorials/blogs.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文章/博客</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/tutorials/videos.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">视频</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">参考</font></font></h3><a id="user-content-reference" class="anchor" aria-label="永久链接：参考" href="#reference"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/graph/annotations.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基于注解的配置</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/reference/benchmarking.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基准测试</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/reference/ga.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">全面上市</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/graph/helm_charts.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Helm Charts</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/reference/images.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">图片</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/analytics/log_level.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">日志记录和日志级别</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/graph/private_registries.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">私人 Docker 注册表</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/reference/apis/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">预测 API</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/python/api/modules.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Python API 参考</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/reference/release-highlights.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布亮点</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/reference/seldon-deployment.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seldon 部署 CRD</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/graph/svcorch.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">服务编排器</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/analytics/kubeflow.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">库贝流</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开发人员</font></font></h3><a id="user-content-developer" class="anchor" aria-label="永久链接：开发者" href="#developer"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/developer/readme.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">概述</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/developer/contributing.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为 Seldon Core 做出贡献</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/developer/e2e.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">端到端测试</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/developer/roadmap.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">路线图</font></font></a></li>
+<li><a href="https://docs.seldon.io/projects/seldon-core/en/latest/developer/build-using-private-repo.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用私有仓库进行构建</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于“Seldon Core”这个名字</font></font></h2><a id="user-content-about-the-name-seldon-core" class="anchor" aria-label="永久链接：关于“Seldon Core”这个名字" href="#about-the-name-seldon-core"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seldon (ˈSɛldən) Core 这个名字的灵感来自于</font></font><a href="https://en.wikipedia.org/wiki/Foundation_series" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">《基地系列》（科幻小说）</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，其前提是一位名叫“Hari Seldon”的数学家，他一生致力于发展一种心理史学理论，这是一门新颖有效的数学社会学，可以极其准确地预测长期内（数十万年）的未来。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">商业产品</font></font></h2><a id="user-content-commercial-offerings" class="anchor" aria-label="永久链接：商业产品" href="#commercial-offerings"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要了解有关我们的商业产品的更多信息，请访问</font></font><a href="https://www.seldon.io/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://www.seldon.io/</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">执照</font></font></h2><a id="user-content-license" class="anchor" aria-label="永久链接：许可证" href="#license"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a href="/SeldonIO/seldon-core/blob/master/LICENSE"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">执照</font></font></a></p>
+</article></div>
